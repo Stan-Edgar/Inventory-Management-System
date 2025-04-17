@@ -4,6 +4,21 @@ const product = document.querySelector('#product');
 const quantity = document.querySelector('#quantity');
 const price = document.querySelector('#price');
 
+const form = document.querySelector("#form");
+const error = document.querySelector("#error")
+  
+
+function eReset() {
+    error.innerHTML = "";
+    error.className = "";
+}
+
+form.addEventListener('submit', (e) => {
+
+    e.preventDefault()
+
+})
+
 function calcDiscount(item) {
 
     if(item.Total > 100) {
@@ -17,10 +32,15 @@ const Print = document.querySelector("#print");
 
 Add.addEventListener('click', function() {
 
+    
     if (product.value === "" || quantity.value === "" || price.value === "") {
-        alert("Please Fill in empty fields")
+        error.innerHTML = "Please Fill in empty fields!!!";
+        error.className += "bg-[#dc3545] text-white font-bold p-5"
         return
     }
+
+    eReset();
+
 
     let item = {
         Product: product.value,
@@ -28,16 +48,31 @@ Add.addEventListener('click', function() {
         Price: price.value,
         Total: price.value * quantity.value,
         Discount: 0,
-        Final: (price.value * quantity.value) - ((price.value * quantity.value) * 0.15)
+        Final: 0
     }
 
+    
     calcDiscount(item);
+    item.Final = item.Total - item.Discount;
     arr.push(item);
 
 });
 
 
 Print.addEventListener('click', function() {
+
+    if (product.value === "" || quantity.value === "" || price.value === "" ) {
+        error.innerHTML = "Please Fill in empty fields!!!";
+            error.className += "bg-[#dc3545] text-white font-bold p-5"
+        return
+    } else if (arr.length <= 0) {
+        error.innerHTML = "Please add a product first!";
+        error.className += "bg-[#dc3545] text-white font-bold p-5"
+        return
+    };
+
+    eReset();
+
     console.log("")
     alert("Check your console :D")
     arr.forEach(item => {

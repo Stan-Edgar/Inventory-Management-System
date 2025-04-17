@@ -11,17 +11,18 @@
     <div class="flex flex-col items-center gap-y-4">
         <h1 class="text-5xl font-bold">Inventory Management System</h1>
         <p>Get 15% off all purchases higher than $100!!!</p>
+        <div id="error" class=""></div>
     </div>
    
 
-    <form action="">
+    <form action="/" method="get" id="form">
         <div class="bg-[#dc3545] flex flex-col w-100 p-5 rounded-2xl gap-y-2.5 text-white">
 
-            <label for="" class="flex justify-between">Product Name: <input type="text" name="Product" id="product" class="bg-white w-50 text-black p-2" required></label>
-            <label for="" class="flex justify-between">Quantity: <input type="number" name="Quantity" id="quantity" class="bg-white w-50 text-black p-2" required></label>
-            <label for="" class="flex justify-between">Unit Price: <input type="number" name="Unit Price" id="price" class="bg-white w-50 text-black p-2" required></label>
+            <label for="" class="flex justify-between">Product Name: <input type="text" name="Product" id="product" class="bg-white w-50 text-black p-2 invalid:border-red-500"  required></label>
+            <label for="" class="flex justify-between">Quantity: <input type="number" name="Quantity" id="quantity" class="bg-white w-50 text-black p-2 invalid:border-red-500"  required></label>
+            <label for="" class="flex justify-between">Unit Price: <input type="number" name="Unit Price" id="price" class="bg-white w-50 text-black p-2 invalid:border-red-500"  required></label>
     
-            <div id="Add" class="bg-black text-white mt-5 w-25 p-2 text-center ml-60 cursor-pointer rounded-[0.5rem]">Add</div>
+            <button id="Add" class="bg-black text-white mt-5 w-25 p-2 text-center ml-60 cursor-pointer rounded-[0.5rem]">Add</button>
             <div class="border-2 border-white font-bold w-25 p-2 text-center ml-60 cursor-pointer rounded-[0.5rem]" id="print">print</div>
         </div>    
     </form>
